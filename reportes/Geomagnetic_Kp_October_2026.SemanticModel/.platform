@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Geomagnetic_Kp_October_2026"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a8f7e22e-47f6-4fb7-9968-f11d2d562f88"
+  }
+}

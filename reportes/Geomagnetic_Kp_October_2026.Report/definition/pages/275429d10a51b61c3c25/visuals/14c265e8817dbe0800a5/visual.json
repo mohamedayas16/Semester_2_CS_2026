@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "14c265e8817dbe0800a5",
+  "position": {
+    "x": 27.255688434594557,
+    "y": 111.29406110792777,
+    "z": 5000,
+    "height": 70.410528456035934,
+    "width": 1869.2859651392766
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": " Analysis of 248 three-hour Kp observations from GFZ.",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "32pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

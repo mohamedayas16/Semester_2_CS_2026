@@ -1,0 +1,111 @@
+table FactKp
+	lineageTag: ab90a5e1-7847-46d4-a65c-61349f33e418
+
+	measure 'Average Kp' = AVERAGE(FactKp[kp])
+		lineageTag: 60dcc82c-5206-403b-99ed-a339acc43d2c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Maximum Kp' = MAX(FactKp[kp])
+		formatString: General Date
+		lineageTag: cabc803b-714e-4887-b9bc-e6b38b6f6710
+
+	measure 'Storm Intervals' =
+			
+			CALCULATE(
+			    COUNTROWS(FactKp),
+			    FactKp[kp] >= 5
+			)
+		formatString: 0
+		lineageTag: a48969a2-48b6-4e6b-8dfe-2ba0257b8d5f
+
+	column datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 729965e6-9a9c-4064-af36-cd70c6bfb992
+		summarizeBy: none
+		sourceColumn: datetime
+
+		variation Variation
+			isDefault
+			relationship: 856928c4-c418-4bf5-a4ce-a2910d6fa77c
+			defaultHierarchy: LocalDateTable_87df02af-aaac-41b5-b7a4-d6e9e529da87.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column kp
+		dataType: double
+		lineageTag: 645c0ded-306e-4093-8ae8-d54377c5c004
+		summarizeBy: sum
+		sourceColumn: kp
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column status
+		dataType: string
+		lineageTag: 0e346d1f-3238-4c09-8f3c-c6ea2748cd7c
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 08b75a91-6b10-40c3-83f9-24e3bd8e0506
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hour
+		dataType: int64
+		formatString: 0
+		lineageTag: 889ecc58-64bc-4249-b630-fd6739a4e093
+		summarizeBy: sum
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column storm_interval
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9d9d3a12-92cb-4947-8b87-811ac3ef8d25
+		summarizeBy: none
+		sourceColumn: storm_interval
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Activity Level' =
+			
+			SWITCH(
+			    TRUE(),
+			    FactKp[kp] < 2, "Quiet",
+			    FactKp[kp] < 3, "Unsettled",
+			    FactKp[kp] < 4, "Active",
+			    FactKp[kp] < 5, "Minor disturbance",
+			    "Storm-level"
+			)
+		lineageTag: a61f7083-3457-4da5-bf4a-e5c12458eabd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactKp = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents("C:\Users\Lenovo\Desktop\PIA_CS_2026-main\data\processed\kp_october_2026.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,9 @@
+relationship 856928c4-c418-4bf5-a4ce-a2910d6fa77c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactKp.datetime
+	toColumn: LocalDateTable_87df02af-aaac-41b5-b7a4-d6e9e529da87.Date
+
+relationship 7c41c271-daec-d950-2cc4-e28f5eb817fc
+	fromColumn: FactKp.date
+	toColumn: DimDate.Date
+
