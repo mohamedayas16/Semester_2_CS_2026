@@ -39,8 +39,6 @@ table FactKp
 		summarizeBy: sum
 		sourceColumn: kp
 
-		changedProperty = DataType
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -101,7 +99,7 @@ table FactKp
 		mode: import
 		source =
 				let
-				    Source = Parquet.Document(File.Contents("C:\Users\Lenovo\Desktop\PIA_CS_2026-main\data\processed\kp_october_2026.parquet"), [Compression=null, LegacyColumnNameEncoding=false, MaxDepth=null])
+				    Source = Parquet.Document(File.Contents(ParquetFilePath), [Compression=null])
 				in
 				    Source
 

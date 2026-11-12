@@ -1,0 +1,8 @@
+/// Path to the processed GFZ Kp Parquet dataset
+expression ParquetFilePath = "C:\Users\Lenovo\Desktop\Semester_2_CS_2026\data\processed\kp_october_2026.parquet" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 2afaf40e-81e0-45f2-a004-9fd2316b6bbb
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
