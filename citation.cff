@@ -1,16 +1,32 @@
+
 cff-version: 1.2.0
-message: "If you use this software or coursework code, please cite it as below."
+
+message: "If you use this project, please cite it using these metadata."
+
+type: software
+
+title: "Geomagnetic Activity and Aurora Potential - October 2026"
+
 authors:
-  - family-names: "Mohamed Kasim"
-    given-names: "Mohamed Ayas"
-    affiliation: "Universidad Autónoma de Nuevo León (UANL)"
-title: "Class Project and Coursework Assignments for Cómputo Científico"
-version: "1.0.0"
-date-released: 2026-09-04
-license: "GPL-3.0"
-repository-code: "https://github.com/mohamedayas16/CS_Fase1_Assingment"
+  - family-names: "MOHAMED KASIM"
+    given-names: "MOHAMED AYAS"
+    affiliation: "Universidad Autónoma de Nuevo León"
+
+abstract: >-
+  A reproducible scientific computing project analyzing
+  geomagnetic activity during October 2026 using planetary
+  Kp index observations from the GFZ Helmholtz Centre for
+  Geosciences. The project integrates scientific API data
+  acquisition, Python-based processing, Parquet data storage,
+  and Power BI visualization and validation.
+
+repository-code: "https://github.com/mohamedayas16/Semester_2_CS_2026"
 
 keywords:
-  - "computational physics"
-  - "data analysis"
-  - "coursework"
+  - scientific computing
+  - geomagnetic activity
+  - Kp index
+  - aurora potential
+  - Python
+  - Power BI
+  - reproducibility
