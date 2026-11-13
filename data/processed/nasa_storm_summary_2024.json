@@ -1,0 +1,7 @@
+{
+  "year": 2024,
+  "source": "NASA DONKI GST API",
+  "total_storm_events": 20,
+  "months_with_storms": 7,
+  "maximum_reported_kp": 9.0
+}

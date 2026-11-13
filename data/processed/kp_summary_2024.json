@@ -1,0 +1,13 @@
+{
+  "year": 2024,
+  "kp_intervals": 2928,
+  "kp_days": 366,
+  "kp_mean": 1.92,
+  "kp_max": 9.0,
+  "storm_intervals": 97,
+  "aurora_report_rows_2024": 11465,
+  "days_with_reports": 318,
+  "daily_pearson_kp_max_vs_report_count": 0.4498,
+  "daily_spearman_kp_max_vs_report_count": 0.6181,
+  "caution": "Report count is not a count of all auroras; reporting depends on observer coverage, weather, and daylight."
+}
