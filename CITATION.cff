@@ -1,11 +1,10 @@
-
 cff-version: 1.2.0
 
 message: "If you use this project, please cite it using these metadata."
 
 type: software
 
-title: "Geomagnetic Activity and Aurora Potential - October 2026"
+title: "Analysis of Geomagnetic Activity and Reported Aurora Sightings Using Python and Power BI"
 
 authors:
   - family-names: "MOHAMED KASIM"
@@ -13,12 +12,14 @@ authors:
     affiliation: "Universidad Autónoma de Nuevo León"
 
 abstract: >-
-  A reproducible scientific computing project analyzing
-  geomagnetic activity during October 2026 using planetary
-  Kp index observations from the GFZ Helmholtz Centre for
-  Geosciences. The project integrates scientific API data
-  acquisition, Python-based processing, Parquet data storage,
-  and Power BI visualization and validation.
+  A reproducible scientific computing project examining the relationship
+  between geomagnetic activity and citizen-reported aurora sightings in 2024.
+  Planetary Kp observations from the GFZ Helmholtz Centre for Geosciences
+  are analyzed alongside Aurorasaurus reports, with NASA DONKI geomagnetic
+  storm-event records providing supporting comparisons. An October 2026
+  Kp analysis is retained as an additional case study. The project uses
+  scientific APIs, Python data processing, structured data storage, and
+  Power BI for visualization and validation.
 
 repository-code: "https://github.com/mohamedayas16/Semester_2_CS_2026"
 
@@ -26,7 +27,9 @@ keywords:
   - scientific computing
   - geomagnetic activity
   - Kp index
-  - aurora potential
+  - aurora sightings
+  - Aurorasaurus
+  - NASA DONKI
   - Python
   - Power BI
   - reproducibility
