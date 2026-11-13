@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "4088c7e974e173077040",
+  "position": {
+    "x": 22.5,
+    "y": 17.5,
+    "z": 3000,
+    "height": 92.5,
+    "width": 1867.5,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "NASA DONKI Geomagnetic Storm Analysis — 2024",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "40pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

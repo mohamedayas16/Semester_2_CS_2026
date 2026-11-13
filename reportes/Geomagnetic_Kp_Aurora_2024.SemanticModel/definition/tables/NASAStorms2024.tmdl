@@ -1,0 +1,51 @@
+table NASAStorms2024
+	lineageTag: e5091a7a-3444-4994-a431-ea8bc8ebcae2
+
+	column month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0f8df52f-b5f1-4823-a264-e209d7c77d83
+		summarizeBy: none
+		sourceColumn: month
+
+		variation Variation
+			isDefault
+			relationship: bef76395-945b-40f2-add9-bbdc900d14dc
+			defaultHierarchy: LocalDateTable_61a06e72-d037-4409-a946-c28813ab3879.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column storm_events
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e59815b-06a0-44d2-8ada-9d3a54a5b4e9
+		summarizeBy: sum
+		sourceColumn: storm_events
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthText
+		dataType: string
+		lineageTag: c6299ae7-e821-4ed0-a186-4efbc1173935
+		summarizeBy: none
+		sourceColumn: MonthText
+
+		annotation SummarizationSetBy = Automatic
+
+	partition NASAStorms2024 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Lenovo\Desktop\Semester_2_CS_2026\data\processed\nasa_storms_monthly_2024.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"month", type date}, {"storm_events", Int64.Type}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "MonthText", each Date.ToText(Date.From([month]), "yyyy-MM"))
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

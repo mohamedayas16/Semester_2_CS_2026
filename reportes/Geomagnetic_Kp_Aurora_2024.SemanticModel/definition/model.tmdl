@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["FactKp","FactKp2024","AuroraDaily","AuroraMonthly","NASAStorms2024","NASAStormEvents"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table FactKp
+ref table DateTableTemplate_0c4c7c39-7450-4240-aab6-a8712cded4ef
+ref table LocalDateTable_87df02af-aaac-41b5-b7a4-d6e9e529da87
+ref table DimDate
+ref table FactKp2024
+ref table LocalDateTable_3203bf89-ad5f-46af-9d03-01d8e8951d10
+ref table LocalDateTable_4c47cb5f-ce0b-46ef-a153-9c17ff187e9f
+ref table AuroraDaily
+ref table LocalDateTable_b11517ce-5cb1-4d94-8fa7-7bcc4e0faddf
+ref table LocalDateTable_9f08becd-c32c-4fb2-b25f-ed1bb590d58b
+ref table AuroraMonthly
+ref table LocalDateTable_d5db9b2f-12a0-4ea3-b93e-cd23e79e72c2
+ref table DimDate2024
+ref table NASAStorms2024
+ref table LocalDateTable_61a06e72-d037-4409-a946-c28813ab3879
+ref table NASAStormEvents
+ref table LocalDateTable_2bc84052-a46d-464d-8b31-8bff579729a7
+ref table LocalDateTable_2bc1215f-84cd-46b1-a557-5f8aa105e81b
+
+ref cultureInfo en-US
+

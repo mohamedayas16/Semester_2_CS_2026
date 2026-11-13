@@ -1,0 +1,137 @@
+table AuroraDaily
+	lineageTag: 10ec54cd-0de6-4459-889b-9d9699b82575
+
+	measure 'Average Kp 2024' = AVERAGE(FactKp2024[kp])
+		lineageTag: d8412e33-2043-4211-8828-86ee8afaa676
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Maximum Kp 2024' = MAX(FactKp2024[kp])
+		lineageTag: 5151ab57-9337-4435-8309-aca6562400e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Storm Intervals 2024' =
+			
+			CALCULATE(
+			    COUNTROWS(FactKp2024),
+			    FactKp2024[kp] >= 5
+			)
+		formatString: 0
+		lineageTag: 2ae014e7-b598-4460-a708-144c85110c20
+
+	measure 'Aurora Reports 2024' =
+			
+			SUM(AuroraDaily[aurora_report_count])
+		formatString: 0
+		lineageTag: eae581e6-8fbd-4119-99a8-a62409d4314e
+
+	measure 'Kp Observations 2024' =
+			
+			COUNTROWS(FactKp2024)
+		formatString: 0
+		lineageTag: 433b2968-7afa-481c-844a-c64ec9c79043
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 28c38fb6-4404-48ad-9bd6-b88c42e7b355
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 454d6226-520b-47f7-8a97-6618e82a4e6a
+			defaultHierarchy: LocalDateTable_b11517ce-5cb1-4d94-8fa7-7bcc4e0faddf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column kp_daily_max
+		dataType: double
+		lineageTag: 571f853f-e218-4aa0-8d60-c25705e69879
+		summarizeBy: sum
+		sourceColumn: kp_daily_max
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column kp_daily_mean
+		dataType: double
+		lineageTag: 4f3ee57c-c757-4245-9f12-79cd9a7c722e
+		summarizeBy: sum
+		sourceColumn: kp_daily_mean
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column storm_intervals
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fcc5594-d6e1-4323-a96b-ab24e125f86f
+		summarizeBy: sum
+		sourceColumn: storm_intervals
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cf230839-ca84-46a5-acd1-dcf7b7758b24
+		summarizeBy: none
+		sourceColumn: month
+
+		variation Variation
+			isDefault
+			relationship: 301cfbde-331c-491a-ac55-64e66714a998
+			defaultHierarchy: LocalDateTable_9f08becd-c32c-4fb2-b25f-ed1bb590d58b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column aurora_report_count
+		dataType: int64
+		formatString: 0
+		lineageTag: d1463fc8-d30a-44d3-b86e-92c0ef2cf242
+		summarizeBy: sum
+		sourceColumn: aurora_report_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column storm_day
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 07856075-cb1e-40be-94e0-d36b4ea6ce20
+		summarizeBy: none
+		sourceColumn: storm_day
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthText
+		dataType: string
+		lineageTag: 3d837bf4-4c00-4fcc-9adb-45d555b4ba1b
+		summarizeBy: none
+		sourceColumn: MonthText
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AuroraDaily = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Lenovo\Desktop\Semester_2_CS_2026\data\processed\kp_aurora_daily_2024.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"kp_daily_max", type number}, {"kp_daily_mean", type number}, {"storm_intervals", Int64.Type}, {"month", type date}, {"aurora_report_count", Int64.Type}, {"storm_day", type logical}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "MonthText", each Date.ToText(Date.From([month]), "yyyy-MM")),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"MonthText", type text}, {"date", type date}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Geomagnetic_Kp_Aurora_2024"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d6a070fc-bb83-4901-9e08-bb283c92f929"
+  }
+}

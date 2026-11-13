@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "3f5f3580b4741bc0a025",
+  "position": {
+    "x": 48.288328748666707,
+    "y": 65.5341604446191,
+    "z": 7000,
+    "height": 93.127491158142931,
+    "width": 1834.9564924493347,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "May 2024 - Case Study",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "40pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

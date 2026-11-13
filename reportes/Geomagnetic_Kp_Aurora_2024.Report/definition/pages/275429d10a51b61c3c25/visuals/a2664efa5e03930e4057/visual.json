@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a2664efa5e03930e4057",
+  "position": {
+    "x": 75.500905062105986,
+    "y": 239.445727482679,
+    "z": 0,
+    "height": 131.58729167967044,
+    "width": 951.31140378253542,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactKp"
+                    }
+                  },
+                  "Property": "Average Kp"
+                }
+              },
+              "queryRef": "FactKp.Average Kp",
+              "nativeQueryRef": "Average Kp"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactKp"
+                    }
+                  },
+                  "Property": "Maximum Kp"
+                }
+              },
+              "queryRef": "FactKp.Maximum Kp",
+              "nativeQueryRef": "Maximum Kp"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactKp"
+                    }
+                  },
+                  "Property": "Storm Intervals"
+                }
+              },
+              "queryRef": "FactKp.Storm Intervals",
+              "nativeQueryRef": "Storm Intervals"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FactKp"
+                  }
+                },
+                "Property": "Average Kp"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

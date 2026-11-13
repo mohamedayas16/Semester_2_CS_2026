@@ -1,0 +1,85 @@
+table NASAStormEvents
+	lineageTag: 6936c925-4e92-4ab4-b185-e939d0c75a84
+
+	column storm_id
+		dataType: string
+		lineageTag: 04a6f4c7-8a67-4920-9686-5426d95da2e7
+		summarizeBy: none
+		sourceColumn: storm_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fe714555-cea8-4bde-85b4-de7fe2c7c9c8
+		summarizeBy: none
+		sourceColumn: start_time
+
+		variation Variation
+			isDefault
+			relationship: caaf270b-b504-4f93-a06e-1374c3334b52
+			defaultHierarchy: LocalDateTable_2bc84052-a46d-464d-8b31-8bff579729a7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column maximum_kp
+		dataType: double
+		lineageTag: ebb95c90-e1c9-40b5-a2c9-4ef928522b80
+		summarizeBy: sum
+		sourceColumn: maximum_kp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6abe3ced-cc8c-42fd-b485-6490c50f3a21
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 756f994b-8f39-4c6b-bfdf-c416f047128b
+		summarizeBy: none
+		sourceColumn: month
+
+		variation Variation
+			isDefault
+			relationship: b1d129bf-c03d-4157-a03a-12d873dd01b0
+			defaultHierarchy: LocalDateTable_2bc1215f-84cd-46b1-a557-5f8aa105e81b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MonthText
+		dataType: string
+		lineageTag: 25d8cb53-dd06-440f-bda4-5cce8aa4ebcf
+		summarizeBy: none
+		sourceColumn: MonthText
+
+		annotation SummarizationSetBy = Automatic
+
+	partition NASAStormEvents = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Lenovo\Desktop\Semester_2_CS_2026\data\processed\nasa_storms_2024.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"storm_id", type text}, {"start_time", type datetime}, {"maximum_kp", type number}, {"date", type date}, {"month", type date}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "MonthText", each Date.ToText(Date.From([month]), "yyyy-MM"))
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,63 @@
+relationship 856928c4-c418-4bf5-a4ce-a2910d6fa77c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactKp.datetime
+	toColumn: LocalDateTable_87df02af-aaac-41b5-b7a4-d6e9e529da87.Date
+
+relationship 7c41c271-daec-d950-2cc4-e28f5eb817fc
+	fromColumn: FactKp.date
+	toColumn: DimDate.Date
+
+relationship 6fcb2e0b-701a-4ea2-a369-9ab8359ba392
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactKp2024.datetime
+	toColumn: LocalDateTable_3203bf89-ad5f-46af-9d03-01d8e8951d10.Date
+
+relationship 83e1eea8-4367-4007-bce3-f7790f1de219
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FactKp2024.month
+	toColumn: LocalDateTable_4c47cb5f-ce0b-46ef-a153-9c17ff187e9f.Date
+
+relationship 454d6226-520b-47f7-8a97-6618e82a4e6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AuroraDaily.date
+	toColumn: LocalDateTable_b11517ce-5cb1-4d94-8fa7-7bcc4e0faddf.Date
+
+relationship 301cfbde-331c-491a-ac55-64e66714a998
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AuroraDaily.month
+	toColumn: LocalDateTable_9f08becd-c32c-4fb2-b25f-ed1bb590d58b.Date
+
+relationship c858a8b8-b70d-4407-b1da-fe870f32d96c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: AuroraMonthly.month
+	toColumn: LocalDateTable_d5db9b2f-12a0-4ea3-b93e-cd23e79e72c2.Date
+
+relationship f6c79332-3400-fbed-0cb9-d0732d338b72
+	fromColumn: FactKp2024.date
+	toColumn: DimDate2024.Date
+
+relationship 2af25796-7db4-b825-5525-b09446e5fb3b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DimDate2024.Date
+	toColumn: AuroraDaily.date
+
+relationship bef76395-945b-40f2-add9-bbdc900d14dc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: NASAStorms2024.month
+	toColumn: LocalDateTable_61a06e72-d037-4409-a946-c28813ab3879.Date
+
+relationship caaf270b-b504-4f93-a06e-1374c3334b52
+	joinOnDateBehavior: datePartOnly
+	fromColumn: NASAStormEvents.start_time
+	toColumn: LocalDateTable_2bc84052-a46d-464d-8b31-8bff579729a7.Date
+
+relationship b1d129bf-c03d-4157-a03a-12d873dd01b0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: NASAStormEvents.month
+	toColumn: LocalDateTable_2bc1215f-84cd-46b1-a557-5f8aa105e81b.Date
+
+relationship 3c13052d-0942-ae10-0e14-1c20b745d78d
+	fromColumn: NASAStormEvents.date
+	toColumn: DimDate2024.Date
+

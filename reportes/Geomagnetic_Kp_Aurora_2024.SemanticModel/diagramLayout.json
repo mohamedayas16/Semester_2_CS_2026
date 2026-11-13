@@ -1,0 +1,133 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 914.28571428571433,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 873.811621443265,
+            "y": 117.42112681837114
+          },
+          "nodeIndex": "FactKp",
+          "nodeLineageTag": "ab90a5e1-7847-46d4-a65c-61349f33e418",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 1069.2401928718366,
+            "y": 0
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "53d2b538-a3ff-4784-8dd4-c7df6a582c4b",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 1392.6687643004079,
+            "y": 340.00000000000006
+          },
+          "nodeIndex": "AuroraDaily",
+          "nodeLineageTag": "10ec54cd-0de6-4459-889b-9d9699b82575",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 1654.2015611931854,
+            "y": 57.142857142857139
+          },
+          "nodeIndex": "AuroraMonthly",
+          "nodeLineageTag": "775b0af4-afdf-496b-83d5-2f5af1a637c3",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 1070,
+            "y": 232.85714285714295
+          },
+          "nodeIndex": "FactKp2024",
+          "nodeLineageTag": "36433e44-bf4b-4670-9e22-6c3e687cfc83",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1370.3830500146937,
+            "y": 59.996277694899845
+          },
+          "nodeIndex": "DimDate2024",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 1890.0973357289797,
+            "y": 181.99255538979963
+          },
+          "nodeIndex": "NASAStorms2024",
+          "nodeLineageTag": "e5091a7a-3444-4994-a431-ea8bc8ebcae2",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 152
+        },
+        {
+          "location": {
+            "x": 1634.0973357289795,
+            "y": 181.42484912347129
+          },
+          "nodeIndex": "NASAStormEvents",
+          "nodeLineageTag": "6936c925-4e92-4ab4-b185-e939d0c75a84",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 224
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 70,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

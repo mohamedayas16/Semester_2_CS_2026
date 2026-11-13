@@ -1,0 +1,120 @@
+table FactKp2024
+	lineageTag: 36433e44-bf4b-4670-9e22-6c3e687cfc83
+
+	column datetime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6794574f-d3f3-47a7-b8ae-d513cb8bf836
+		summarizeBy: none
+		sourceColumn: datetime
+
+		variation Variation
+			isDefault
+			relationship: 6fcb2e0b-701a-4ea2-a369-9ab8359ba392
+			defaultHierarchy: LocalDateTable_3203bf89-ad5f-46af-9d03-01d8e8951d10.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column kp
+		dataType: double
+		lineageTag: 51027cc5-378c-46a9-b8f3-c063c57a6a4f
+		summarizeBy: sum
+		sourceColumn: kp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column status
+		dataType: string
+		lineageTag: 693ab7e1-b22f-4b40-8795-923c4a418b29
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 34935e8a-e1d4-43be-bba3-7cc9b97a9a10
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hour
+		dataType: int64
+		formatString: 0
+		lineageTag: a14bd978-ff44-4d5a-884e-f9435da19e36
+		summarizeBy: sum
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column storm_interval
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c4370931-b452-4218-a2fa-01b510700f80
+		summarizeBy: none
+		sourceColumn: storm_interval
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b7e80ce1-bcdd-41b9-8ea2-d8213c1540f0
+		summarizeBy: none
+		sourceColumn: month
+
+		variation Variation
+			isDefault
+			relationship: 83e1eea8-4367-4007-bce3-f7790f1de219
+			defaultHierarchy: LocalDateTable_4c47cb5f-ce0b-46ef-a153-9c17ff187e9f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column activity_category
+		dataType: string
+		lineageTag: fde8e091-5b8b-45c6-ad44-271e3630285b
+		summarizeBy: none
+		sourceColumn: activity_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthText
+		dataType: string
+		lineageTag: 30edaa6c-eb0b-492c-92f3-71e7cf2fa5f9
+		summarizeBy: none
+		sourceColumn: MonthText
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateTimeUTC
+		dataType: string
+		lineageTag: 46848548-55fc-4786-bcea-26460b3b0d72
+		summarizeBy: none
+		sourceColumn: DateTimeUTC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactKp2024 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Lenovo\Desktop\Semester_2_CS_2026\data\processed\kp_2024.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"datetime", type datetime}, {"kp", type number}, {"status", type text}, {"date", type date}, {"hour", Int64.Type}, {"storm_interval", type logical}, {"month", type date}, {"activity_category", type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "MonthText", each Date.ToText(Date.From([month]), "yyyy-MM")),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "DateTimeUTC", each DateTime.From([datetime]) + #duration(0, 6, 0, 0))
+				in
+				    #"Added Custom1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

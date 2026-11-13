@@ -1,0 +1,128 @@
+table DimDate2024
+	lineageTag: ec42b373-41bd-4cd1-8632-4971cd9c8d2f
+
+	measure 'Mean Aurora Reports by Storm Status' = ```
+			
+			AVERAGE(DimDate2024[Daily Aurora Reports])
+			
+			```
+		lineageTag: e106562e-4e81-4eb2-896a-4295367dc2e2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Daily Aurora Reports' =
+			
+			SUM(DimDate2024[Daily Aurora Reports])
+		formatString: 0
+		lineageTag: 4d27ced1-7971-4b71-8691-2edb1f2893ef
+
+	column Date
+		formatString: General Date
+		lineageTag: c675ea5a-1c15-4c61-94cb-03d95587e982
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 2e07ca58-d6cc-4963-9f6d-dfd021e329d8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		formatString: 0
+		lineageTag: 24305abd-c727-489a-9380-7f425f21b07e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthNumber]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		lineageTag: 04181405-e2e2-41c4-99d5-b68448f7ea1c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: aff00383-4cba-44f2-a464-2a667d0a7b20
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'NASA Storm Day' = ```
+			
+			IF(
+			    COUNTROWS(RELATEDTABLE(NASAStormEvents)) > 0,
+			    "NASA Storm Day",
+			    "Other Day"
+			)
+			
+			```
+		lineageTag: 456a5cf1-3371-4bde-bc21-2189539bdf62
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Average Aurora Reports per Day' = ```
+			
+			AVERAGEX(
+			    VALUES(DimDate2024[Date]),
+			    COALESCE(
+			        CALCULATE(
+			            SUM(AuroraDaily[aurora_report_count])
+			        ),
+			        0
+			    )
+			)
+			
+			```
+		lineageTag: ee3f7888-ab03-4bb1-ac8b-2843caa22538
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Daily Aurora Reports' = ```
+			
+			COALESCE(
+			    LOOKUPVALUE(
+			        AuroraDaily[aurora_report_count],
+			        AuroraDaily[date], DimDate2024[Date]
+			    ),
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 7e98dc34-0740-42a0-b7fc-66677930e735
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate2024 = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    CALENDAR(DATE(2024, 1, 1), DATE(2024, 12, 31)),
+				    "Year", YEAR([Date]),
+				    "MonthNumber", MONTH([Date]),
+				    "MonthName", FORMAT([Date], "MMMM"),
+				    "YearMonth", FORMAT([Date], "yyyy-MM")
+				)
+				
+				```
+
+	annotation PBI_Id = 284f1e5e42d745d9aa0e20ec6a863f85
+

@@ -154,6 +154,34 @@ The same Power BI report contains **three analytical sections/pages**:
 
 **2024 relationships:** `DimDate2024[Date]` filters `FactKp2024[date]`, `AuroraDaily[date]`, and `NASAStormEvents[date]`. `AuroraMonthly` and `NASAStorms2024` are standalone pre-aggregated monthly tables. The older `DimDate`–`FactKp` relationship is retained for the October 2026 case study.
 
+
+### Validation of Power BI DAX measures using pandas
+
+Three existing Power BI measures were compared with
+calculations made using Python and pandas on the
+processed GFZ 2024 dataset.
+
+| DAX measure | Power BI | pandas | Result |
+|---|---:|---:|---|
+| Kp Observations 2024 | 2,928 | 2,928 | Match |
+| Average Kp 2024 | 1.92 | 1.9203 | Match (rounded) |
+| Storm Intervals 2024 | 97 | 97 | Match |
+
+**Dataset:** `data/processed/kp_2024.csv`
+
+**Python validation command:**
+
+```powershell
+python -c "import pandas as pd; d=pd.read_csv('data/processed/kp_2024.csv'); print('Kp Observations:',len(d)); print('Average Kp:',round(d['kp'].mean(),4)); print('Storm Intervals:',int((d['kp']>=5).sum()))"
+```
+
+The validation uses all 2,928 three-hour Kp measurements
+recorded during 2024. A storm-level interval is defined
+as a measurement with Kp >= 5.
+
+The Power BI values are displayed to two decimal places
+for the average Kp.
+
 **Six 2024/NASA visualizations:**
 
 1. Monthly geomagnetic activity vs aurora report count.

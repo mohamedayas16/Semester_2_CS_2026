@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1e0f7a753b51b08caba3",
+  "position": {
+    "x": 47.369029721290616,
+    "y": 111.31721984503295,
+    "z": 6000,
+    "height": 87.632704984387644,
+    "width": 1835.5499017000116,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Annual Kp Analysis, Aurora Reporting Trends, and Correlation",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "36pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

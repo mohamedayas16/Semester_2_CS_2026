@@ -1,0 +1,112 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "4bf51b840d5eecc38d1c",
+  "position": {
+    "x": 709.70850758379629,
+    "y": 317.10380126084516,
+    "z": 0,
+    "height": 116.48711066724924,
+    "width": 1190.7571312652144,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AuroraDaily"
+                    }
+                  },
+                  "Property": "Aurora Reports 2024"
+                }
+              },
+              "queryRef": "AuroraDaily.Aurora Reports 2024",
+              "nativeQueryRef": "Aurora Reports 2024"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AuroraDaily"
+                    }
+                  },
+                  "Property": "Average Kp 2024"
+                }
+              },
+              "queryRef": "AuroraDaily.Average Kp 2024",
+              "nativeQueryRef": "Average Kp 2024"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AuroraDaily"
+                    }
+                  },
+                  "Property": "Kp Observations 2024"
+                }
+              },
+              "queryRef": "AuroraDaily.Kp Observations 2024",
+              "nativeQueryRef": "Kp Observations 2024"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AuroraDaily"
+                    }
+                  },
+                  "Property": "Maximum Kp 2024"
+                }
+              },
+              "queryRef": "AuroraDaily.Maximum Kp 2024",
+              "nativeQueryRef": "Maximum Kp 2024"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AuroraDaily"
+                    }
+                  },
+                  "Property": "Storm Intervals 2024"
+                }
+              },
+              "queryRef": "AuroraDaily.Storm Intervals 2024",
+              "nativeQueryRef": "Storm Intervals 2024"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "AuroraDaily"
+                  }
+                },
+                "Property": "Aurora Reports 2024"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

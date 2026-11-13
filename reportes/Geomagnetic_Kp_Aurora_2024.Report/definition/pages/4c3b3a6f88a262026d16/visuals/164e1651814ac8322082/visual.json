@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "164e1651814ac8322082",
+  "position": {
+    "x": 49.737481207355152,
+    "y": 14.210708916387185,
+    "z": 7000,
+    "height": 97.106510928645761,
+    "width": 1833.1814502139468,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Geomagnetic Activity and Aurora Sightings — 2024",
+                    "textStyle": {
+                      "fontStyle": "italic",
+                      "fontSize": "40pt"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
