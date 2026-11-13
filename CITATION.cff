@@ -6,6 +6,9 @@ type: software
 
 title: "Analysis of Geomagnetic Activity and Reported Aurora Sightings Using Python and Power BI"
 
+version: 1.0.0
+date-released: 2026-11-13
+
 authors:
   - family-names: "MOHAMED KASIM"
     given-names: "MOHAMED AYAS"
